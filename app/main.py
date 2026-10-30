@@ -1,10 +1,14 @@
 from contextlib import asynccontextmanager
+from pathlib import Path
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import HTMLResponse
 from .database import initialize_database, fetch_all
 from .metrics import (
     all_test_metrics, compute_test_metrics, suite_metrics,
     pipeline_metrics, systemic_metrics, environment_metrics
 )
+
+DASHBOARD_TEMPLATE = Path(__file__).resolve().parent / "templates" / "dashboard.html"
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -20,7 +24,13 @@ app = FastAPI(
 
 @app.get("/")
 def root():
-    return {"project": "FIM", "version": "0.2.0", "status": "running"}
+    return {"project": "FIM", "version": "0.2.0", "status": "running", "dashboard": "/dashboard"}
+
+@app.get("/dashboard", response_class=HTMLResponse)
+def dashboard():
+    if DASHBOARD_TEMPLATE.exists():
+        return HTMLResponse(content=DASHBOARD_TEMPLATE.read_text(encoding="utf-8"))
+    return HTMLResponse(content="<h1>Dashboard template not found. Run: python -m scripts.build_dashboard</h1>", status_code=404)
 
 @app.get("/api/runs")
 def runs():

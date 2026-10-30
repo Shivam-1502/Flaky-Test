@@ -3,7 +3,7 @@ import json
 def test_all_api_endpoints():
     from app.main import (
         test_metrics, suite, pipelines, systemic,
-        environments, export_metrics
+        environments, export_metrics, dashboard
     )
     endpoints = {
         'tests': test_metrics,
@@ -18,6 +18,11 @@ def test_all_api_endpoints():
         assert data is not None
         serialized = json.dumps(data)
         assert len(serialized) > 0
+
+    # Test dashboard endpoint
+    dash_resp = dashboard()
+    assert dash_resp.status_code == 200
+    assert "FIM // Software Quality Analytics Platform" in dash_resp.body.decode("utf-8")
 
 if __name__ == '__main__':
     import urllib.request
