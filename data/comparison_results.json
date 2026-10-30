@@ -1,0 +1,866 @@
+{
+  "scenario_a": {
+    "scenario_key": "scenario_a",
+    "name": "Scenario A \u2014 Recoverable intermittent failures",
+    "description": "Flaky test with 40 base failures evenly distributed across environments and high rerun recovery (90%).",
+    "suite": {
+      "tests": 6,
+      "total_executions": 1240,
+      "base_executions": 1200,
+      "rerun_executions": 40,
+      "flaky_candidates": 1,
+      "flaky_candidate_rate": 0.16666666666666666,
+      "overall_failure_rate": 0.03333333333333333
+    },
+    "pipeline": {
+      "pipelines": 200,
+      "failed_pipelines": 40,
+      "pipeline_failure_rate": 0.2,
+      "total_reruns": 40,
+      "recovered_failures": 36,
+      "rerun_overhead_seconds": 0.025271100224927068
+    },
+    "systemic": {
+      "failure_signature_clusters": {
+        "RuntimeError::Intermittent network timeout": 1
+      },
+      "cluster_count": 1,
+      "systemic_cluster_count": 0,
+      "systemically_affected_flaky_tests": 0,
+      "systemic_flakiness_ratio": 0.0
+    },
+    "environments": {
+      "environments": [
+        {
+          "environment": "docker",
+          "executions": 300,
+          "base_executions": 300,
+          "failures": 10,
+          "failure_count": 10,
+          "failure_rate": 0.03333333333333333,
+          "flaky_test_count": 1,
+          "flaky_candidates": 1
+        },
+        {
+          "environment": "linux",
+          "executions": 300,
+          "base_executions": 300,
+          "failures": 10,
+          "failure_count": 10,
+          "failure_rate": 0.03333333333333333,
+          "flaky_test_count": 1,
+          "flaky_candidates": 1
+        },
+        {
+          "environment": "local",
+          "executions": 300,
+          "base_executions": 300,
+          "failures": 10,
+          "failure_count": 10,
+          "failure_rate": 0.03333333333333333,
+          "flaky_test_count": 1,
+          "flaky_candidates": 1
+        },
+        {
+          "environment": "windows",
+          "executions": 300,
+          "base_executions": 300,
+          "failures": 10,
+          "failure_count": 10,
+          "failure_rate": 0.03333333333333333,
+          "flaky_test_count": 1,
+          "flaky_candidates": 1
+        }
+      ],
+      "overall_environment_sensitivity": 0.0
+    },
+    "tests": [
+      {
+        "test_id": "test_1",
+        "executions": 200,
+        "failures": 40,
+        "failure_rate": 0.2,
+        "mean_duration_seconds": 0.0006112179992487654,
+        "duration_cv": 0.23145413612864002,
+        "outcome_transition_rate": 0.09547738693467336,
+        "environment_failure_rates": {
+          "local": 0.2,
+          "linux": 0.2,
+          "windows": 0.2,
+          "docker": 0.2
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 40,
+        "rerun_overhead_seconds": 0.025271100224927068,
+        "rerun_recovery_rate": 0.9,
+        "failed_execution_time_seconds": 0.02481370000168681,
+        "failed_base_execution_time_seconds": 0.02481370000168681,
+        "failed_rerun_execution_time_seconds": 0.002368199930060655,
+        "total_failed_execution_time_seconds": 0.027181899931747466
+      },
+      {
+        "test_id": "test_2",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0005965430021751672,
+        "duration_cv": 0.22730176851551126,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      },
+      {
+        "test_id": "test_3",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0006160389995784499,
+        "duration_cv": 0.26685625030536575,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      },
+      {
+        "test_id": "test_4",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0009606010009883903,
+        "duration_cv": 0.16828202700698452,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      },
+      {
+        "test_id": "test_5",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0009944719987106509,
+        "duration_cv": 0.12686866918879697,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      },
+      {
+        "test_id": "test_6",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0010144145027152262,
+        "duration_cv": 0.11556656953268445,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      }
+    ]
+  },
+  "scenario_b": {
+    "scenario_key": "scenario_b",
+    "name": "Scenario B \u2014 Persistent intermittent failures",
+    "description": "Flaky test with 40 base failures evenly distributed across environments and low rerun recovery (20%).",
+    "suite": {
+      "tests": 6,
+      "total_executions": 1240,
+      "base_executions": 1200,
+      "rerun_executions": 40,
+      "flaky_candidates": 1,
+      "flaky_candidate_rate": 0.16666666666666666,
+      "overall_failure_rate": 0.03333333333333333
+    },
+    "pipeline": {
+      "pipelines": 200,
+      "failed_pipelines": 40,
+      "pipeline_failure_rate": 0.2,
+      "total_reruns": 40,
+      "recovered_failures": 8,
+      "rerun_overhead_seconds": 0.02553420013282448
+    },
+    "systemic": {
+      "failure_signature_clusters": {
+        "RuntimeError::Persistent flaky resource exhaustion": 1
+      },
+      "cluster_count": 1,
+      "systemic_cluster_count": 0,
+      "systemically_affected_flaky_tests": 0,
+      "systemic_flakiness_ratio": 0.0
+    },
+    "environments": {
+      "environments": [
+        {
+          "environment": "docker",
+          "executions": 300,
+          "base_executions": 300,
+          "failures": 10,
+          "failure_count": 10,
+          "failure_rate": 0.03333333333333333,
+          "flaky_test_count": 1,
+          "flaky_candidates": 1
+        },
+        {
+          "environment": "linux",
+          "executions": 300,
+          "base_executions": 300,
+          "failures": 10,
+          "failure_count": 10,
+          "failure_rate": 0.03333333333333333,
+          "flaky_test_count": 1,
+          "flaky_candidates": 1
+        },
+        {
+          "environment": "local",
+          "executions": 300,
+          "base_executions": 300,
+          "failures": 10,
+          "failure_count": 10,
+          "failure_rate": 0.03333333333333333,
+          "flaky_test_count": 1,
+          "flaky_candidates": 1
+        },
+        {
+          "environment": "windows",
+          "executions": 300,
+          "base_executions": 300,
+          "failures": 10,
+          "failure_count": 10,
+          "failure_rate": 0.03333333333333333,
+          "flaky_test_count": 1,
+          "flaky_candidates": 1
+        }
+      ],
+      "overall_environment_sensitivity": 0.0
+    },
+    "tests": [
+      {
+        "test_id": "test_1",
+        "executions": 200,
+        "failures": 40,
+        "failure_rate": 0.2,
+        "mean_duration_seconds": 0.0006023780032410286,
+        "duration_cv": 0.22514236431352536,
+        "outcome_transition_rate": 0.09547738693467336,
+        "environment_failure_rates": {
+          "local": 0.2,
+          "linux": 0.2,
+          "windows": 0.2,
+          "docker": 0.2
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 40,
+        "rerun_overhead_seconds": 0.02553420013282448,
+        "rerun_recovery_rate": 0.2,
+        "failed_execution_time_seconds": 0.02486770012183115,
+        "failed_base_execution_time_seconds": 0.02486770012183115,
+        "failed_rerun_execution_time_seconds": 0.020550600078422576,
+        "total_failed_execution_time_seconds": 0.045418300200253725
+      },
+      {
+        "test_id": "test_2",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0006231145004858263,
+        "duration_cv": 0.2668863262657921,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      },
+      {
+        "test_id": "test_3",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0006177370002842509,
+        "duration_cv": 0.2553218686454824,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      },
+      {
+        "test_id": "test_4",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0009641774988267571,
+        "duration_cv": 0.15949168444394188,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      },
+      {
+        "test_id": "test_5",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0009778784989612178,
+        "duration_cv": 0.1560162232707421,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      },
+      {
+        "test_id": "test_6",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0010141269979067147,
+        "duration_cv": 0.10693134933933375,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      }
+    ]
+  },
+  "scenario_c": {
+    "scenario_key": "scenario_c",
+    "name": "Scenario C \u2014 Environment-concentrated failures",
+    "description": "Environment-sensitive test with 40 base failures concentrated exclusively in Windows (80% env failure rate).",
+    "suite": {
+      "tests": 6,
+      "total_executions": 1240,
+      "base_executions": 1200,
+      "rerun_executions": 40,
+      "flaky_candidates": 1,
+      "flaky_candidate_rate": 0.16666666666666666,
+      "overall_failure_rate": 0.03333333333333333
+    },
+    "pipeline": {
+      "pipelines": 200,
+      "failed_pipelines": 40,
+      "pipeline_failure_rate": 0.2,
+      "total_reruns": 40,
+      "recovered_failures": 36,
+      "rerun_overhead_seconds": 0.026715599873568863
+    },
+    "systemic": {
+      "failure_signature_clusters": {
+        "RuntimeError::Windows OS path separator and registry permission error": 1
+      },
+      "cluster_count": 1,
+      "systemic_cluster_count": 0,
+      "systemically_affected_flaky_tests": 0,
+      "systemic_flakiness_ratio": 0.0
+    },
+    "environments": {
+      "environments": [
+        {
+          "environment": "docker",
+          "executions": 300,
+          "base_executions": 300,
+          "failures": 0,
+          "failure_count": 0,
+          "failure_rate": 0.0,
+          "flaky_test_count": 0,
+          "flaky_candidates": 0
+        },
+        {
+          "environment": "linux",
+          "executions": 300,
+          "base_executions": 300,
+          "failures": 0,
+          "failure_count": 0,
+          "failure_rate": 0.0,
+          "flaky_test_count": 0,
+          "flaky_candidates": 0
+        },
+        {
+          "environment": "local",
+          "executions": 300,
+          "base_executions": 300,
+          "failures": 0,
+          "failure_count": 0,
+          "failure_rate": 0.0,
+          "flaky_test_count": 0,
+          "flaky_candidates": 0
+        },
+        {
+          "environment": "windows",
+          "executions": 300,
+          "base_executions": 300,
+          "failures": 40,
+          "failure_count": 40,
+          "failure_rate": 0.13333333333333333,
+          "flaky_test_count": 1,
+          "flaky_candidates": 1
+        }
+      ],
+      "overall_environment_sensitivity": 0.13333333333333333
+    },
+    "tests": [
+      {
+        "test_id": "test_1",
+        "executions": 200,
+        "failures": 40,
+        "failure_rate": 0.2,
+        "mean_duration_seconds": 0.0005977740010712296,
+        "duration_cv": 0.21197152670178934,
+        "outcome_transition_rate": 0.4020100502512563,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.8,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.8,
+        "reruns": 40,
+        "rerun_overhead_seconds": 0.026715599873568863,
+        "rerun_recovery_rate": 0.9,
+        "failed_execution_time_seconds": 0.0237463001976721,
+        "failed_base_execution_time_seconds": 0.0237463001976721,
+        "failed_rerun_execution_time_seconds": 0.0032655000686645508,
+        "total_failed_execution_time_seconds": 0.02701180026633665
+      },
+      {
+        "test_id": "test_2",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0006143625019467435,
+        "duration_cv": 0.24994423298313506,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      },
+      {
+        "test_id": "test_3",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0006320050015347078,
+        "duration_cv": 0.27051047010588153,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      },
+      {
+        "test_id": "test_4",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0009711165045155212,
+        "duration_cv": 0.15479059666008435,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      },
+      {
+        "test_id": "test_5",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0009531025015166961,
+        "duration_cv": 0.153989262014614,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      },
+      {
+        "test_id": "test_6",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0009988780002458952,
+        "duration_cv": 0.12397309846838793,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      }
+    ]
+  },
+  "scenario_d": {
+    "scenario_key": "scenario_d",
+    "name": "Scenario D \u2014 Systemic failures affecting multiple tests",
+    "description": "Two tests failing simultaneously in 20 shared pipelines with identical failure signature.",
+    "suite": {
+      "tests": 6,
+      "total_executions": 1240,
+      "base_executions": 1200,
+      "rerun_executions": 40,
+      "flaky_candidates": 2,
+      "flaky_candidate_rate": 0.3333333333333333,
+      "overall_failure_rate": 0.03333333333333333
+    },
+    "pipeline": {
+      "pipelines": 200,
+      "failed_pipelines": 20,
+      "pipeline_failure_rate": 0.1,
+      "total_reruns": 40,
+      "recovered_failures": 36,
+      "rerun_overhead_seconds": 0.024598200106993318
+    },
+    "systemic": {
+      "failure_signature_clusters": {
+        "RuntimeError::Shared database connection pool depleted": 2
+      },
+      "cluster_count": 1,
+      "systemic_cluster_count": 1,
+      "systemically_affected_flaky_tests": 2,
+      "systemic_flakiness_ratio": 1.0
+    },
+    "environments": {
+      "environments": [
+        {
+          "environment": "docker",
+          "executions": 300,
+          "base_executions": 300,
+          "failures": 10,
+          "failure_count": 10,
+          "failure_rate": 0.03333333333333333,
+          "flaky_test_count": 2,
+          "flaky_candidates": 2
+        },
+        {
+          "environment": "linux",
+          "executions": 300,
+          "base_executions": 300,
+          "failures": 10,
+          "failure_count": 10,
+          "failure_rate": 0.03333333333333333,
+          "flaky_test_count": 2,
+          "flaky_candidates": 2
+        },
+        {
+          "environment": "local",
+          "executions": 300,
+          "base_executions": 300,
+          "failures": 10,
+          "failure_count": 10,
+          "failure_rate": 0.03333333333333333,
+          "flaky_test_count": 2,
+          "flaky_candidates": 2
+        },
+        {
+          "environment": "windows",
+          "executions": 300,
+          "base_executions": 300,
+          "failures": 10,
+          "failure_count": 10,
+          "failure_rate": 0.03333333333333333,
+          "flaky_test_count": 2,
+          "flaky_candidates": 2
+        }
+      ],
+      "overall_environment_sensitivity": 0.0
+    },
+    "tests": [
+      {
+        "test_id": "test_1",
+        "executions": 200,
+        "failures": 20,
+        "failure_rate": 0.1,
+        "mean_duration_seconds": 0.0006005689981975592,
+        "duration_cv": 0.22893981609298125,
+        "outcome_transition_rate": 0.04522613065326633,
+        "environment_failure_rates": {
+          "local": 0.1,
+          "linux": 0.1,
+          "windows": 0.1,
+          "docker": 0.1
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 20,
+        "rerun_overhead_seconds": 0.012720100115984678,
+        "rerun_recovery_rate": 0.9,
+        "failed_execution_time_seconds": 0.012656300037633628,
+        "failed_base_execution_time_seconds": 0.012656300037633628,
+        "failed_rerun_execution_time_seconds": 0.0010699999402277172,
+        "total_failed_execution_time_seconds": 0.013726299977861345
+      },
+      {
+        "test_id": "test_2",
+        "executions": 200,
+        "failures": 20,
+        "failure_rate": 0.1,
+        "mean_duration_seconds": 0.0006122415003483184,
+        "duration_cv": 0.22726385988660172,
+        "outcome_transition_rate": 0.04522613065326633,
+        "environment_failure_rates": {
+          "local": 0.1,
+          "linux": 0.1,
+          "windows": 0.1,
+          "docker": 0.1
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 20,
+        "rerun_overhead_seconds": 0.01187809999100864,
+        "rerun_recovery_rate": 0.9,
+        "failed_execution_time_seconds": 0.010992400057148188,
+        "failed_base_execution_time_seconds": 0.010992400057148188,
+        "failed_rerun_execution_time_seconds": 0.0010447999811731279,
+        "total_failed_execution_time_seconds": 0.012037200038321316
+      },
+      {
+        "test_id": "test_3",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0006223955037421547,
+        "duration_cv": 0.2649782999638415,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      },
+      {
+        "test_id": "test_4",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0009461854965775274,
+        "duration_cv": 0.16673420610841858,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      },
+      {
+        "test_id": "test_5",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.0009811779970186763,
+        "duration_cv": 0.14765242929088015,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      },
+      {
+        "test_id": "test_6",
+        "executions": 200,
+        "failures": 0,
+        "failure_rate": 0.0,
+        "mean_duration_seconds": 0.001010509997140616,
+        "duration_cv": 0.11585073125054844,
+        "outcome_transition_rate": 0.0,
+        "environment_failure_rates": {
+          "local": 0.0,
+          "linux": 0.0,
+          "windows": 0.0,
+          "docker": 0.0
+        },
+        "environment_sensitivity": 0.0,
+        "reruns": 0,
+        "rerun_overhead_seconds": 0,
+        "rerun_recovery_rate": 0.0,
+        "failed_execution_time_seconds": 0,
+        "failed_base_execution_time_seconds": 0,
+        "failed_rerun_execution_time_seconds": 0,
+        "total_failed_execution_time_seconds": 0
+      }
+    ]
+  }
+}

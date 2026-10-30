@@ -1,0 +1,5 @@
+Scenario,Description,Pipelines,Failed Pipelines,Pipeline Failure Rate (%),Total Base Executions,Total Base Failures,Suite Base Failure Rate (%),Total Reruns,Recovered Failures,Rerun Recovery Rate (%),Rerun Overhead (s),Flaky Candidates,Flaky Candidate Rate (%),Systemic Clusters,Systemically Affected Tests,Systemic Flakiness Ratio (%),Overall Env Sensitivity (%)
+SCENARIO_A,Scenario A — Recoverable intermittent failures,200,40,20.00,1200,40,3.3333,40,36,90.00,0.025271,1,16.67,0,0,0.00,0.00
+SCENARIO_B,Scenario B — Persistent intermittent failures,200,40,20.00,1200,40,3.3333,40,8,20.00,0.025534,1,16.67,0,0,0.00,0.00
+SCENARIO_C,Scenario C — Environment-concentrated failures,200,40,20.00,1200,40,3.3333,40,36,90.00,0.026716,1,16.67,0,0,0.00,13.33
+SCENARIO_D,Scenario D — Systemic failures affecting multiple tests,200,20,10.00,1200,40,3.3333,40,36,90.00,0.024598,2,33.33,1,2,100.00,0.00

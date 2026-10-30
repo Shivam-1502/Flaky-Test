@@ -43,8 +43,8 @@ CREATE INDEX IF NOT EXISTS idx_parent_run ON test_executions(parent_run_id);
 """
 
 @contextmanager
-def connection():
-    conn = sqlite3.connect(Path(DB_PATH))
+def connection(db_path=None):
+    conn = sqlite3.connect(Path(db_path or DB_PATH))
     conn.row_factory = sqlite3.Row
     try:
         yield conn
@@ -52,17 +52,17 @@ def connection():
     finally:
         conn.close()
 
-def initialize_database():
-    with connection() as conn:
+def initialize_database(db_path=None):
+    with connection(db_path) as conn:
         conn.executescript(SCHEMA)
 
-def clear_database():
-    with connection() as conn:
+def clear_database(db_path=None):
+    with connection(db_path) as conn:
         conn.execute("DELETE FROM test_executions")
         conn.execute("DELETE FROM pipelines")
 
-def insert_execution(execution: TestExecution):
-    with connection() as conn:
+def insert_execution(execution: TestExecution, db_path=None):
+    with connection(db_path) as conn:
         conn.execute(
             """
             INSERT INTO test_executions (
@@ -84,8 +84,8 @@ def insert_execution(execution: TestExecution):
 
 def insert_pipeline(pipeline_id, project_id, commit_id, environment,
                     result, duration_seconds, base_failures,
-                    rerun_count, recovered_count):
-    with connection() as conn:
+                    rerun_count, recovered_count, db_path=None):
+    with connection(db_path) as conn:
         conn.execute(
             """
             INSERT INTO pipelines (
@@ -97,32 +97,38 @@ def insert_pipeline(pipeline_id, project_id, commit_id, environment,
              duration_seconds, base_failures, rerun_count, recovered_count),
         )
 
-def fetch_all():
-    with connection() as conn:
+def fetch_all(db_path=None):
+    with connection(db_path) as conn:
         return conn.execute(
-            "SELECT * FROM test_executions ORDER BY id"
+            "SELECT * FROM test_executions ORDER BY created_at, id"
         ).fetchall()
 
-def fetch_base_executions():
-    with connection() as conn:
+def fetch_base_executions(db_path=None):
+    with connection(db_path) as conn:
         return conn.execute(
-            "SELECT * FROM test_executions WHERE is_rerun = 0 ORDER BY id"
+            "SELECT * FROM test_executions WHERE is_rerun = 0 ORDER BY created_at, id"
         ).fetchall()
 
-def fetch_by_test(test_id, include_reruns=True):
-    with connection() as conn:
+def fetch_rerun_executions(db_path=None):
+    with connection(db_path) as conn:
+        return conn.execute(
+            "SELECT * FROM test_executions WHERE is_rerun = 1 ORDER BY created_at, id"
+        ).fetchall()
+
+def fetch_by_test(test_id, include_reruns=True, db_path=None):
+    with connection(db_path) as conn:
         if include_reruns:
             return conn.execute(
-                "SELECT * FROM test_executions WHERE test_id = ? ORDER BY id",
+                "SELECT * FROM test_executions WHERE test_id = ? ORDER BY created_at, id",
                 (test_id,),
             ).fetchall()
         return conn.execute(
-            "SELECT * FROM test_executions WHERE test_id = ? AND is_rerun = 0 ORDER BY id",
+            "SELECT * FROM test_executions WHERE test_id = ? AND is_rerun = 0 ORDER BY created_at, id",
             (test_id,),
         ).fetchall()
 
-def fetch_pipelines():
-    with connection() as conn:
+def fetch_pipelines(db_path=None):
+    with connection(db_path) as conn:
         return conn.execute(
-            "SELECT * FROM pipelines ORDER BY rowid"
+            "SELECT * FROM pipelines ORDER BY created_at, rowid"
         ).fetchall()
