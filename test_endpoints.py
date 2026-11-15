@@ -3,7 +3,7 @@ import json
 def test_all_api_endpoints():
     from app.main import (
         test_metrics, suite, pipelines, systemic,
-        environments, export_metrics, dashboard
+        environments, export_metrics, real_pilot, dashboard
     )
     endpoints = {
         'tests': test_metrics,
@@ -11,7 +11,8 @@ def test_all_api_endpoints():
         'pipelines': pipelines,
         'systemic': systemic,
         'environments': environments,
-        'export': export_metrics
+        'export': export_metrics,
+        'real_pilot': real_pilot
     }
     for name, func in endpoints.items():
         data = func()
@@ -22,7 +23,17 @@ def test_all_api_endpoints():
     # Test dashboard endpoint
     dash_resp = dashboard()
     assert dash_resp.status_code == 200
-    assert "FIM // Software Quality Analytics Platform" in dash_resp.body.decode("utf-8")
+    html_str = dash_resp.body.decode("utf-8")
+    assert "FIM // Software Quality Analytics Platform" in html_str
+    assert "tab-fim_engine" in html_str
+    assert "view-fim_engine" in html_str
+    assert "Verified Flaky Candidates" in html_str
+    assert "Intermittent Candidates" in html_str
+    assert "/api/engine/upload" in html_str
+    assert "/api/engine/analyze" in html_str
+    assert "/api/engine/download" in html_str
+    assert "btn-engine-download-pdf" in html_str
+    assert "Research Report PDF" in html_str
 
 if __name__ == '__main__':
     import urllib.request

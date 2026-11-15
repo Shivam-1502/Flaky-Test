@@ -7,6 +7,8 @@ from .metrics import (
     all_test_metrics, compute_test_metrics, suite_metrics,
     pipeline_metrics, systemic_metrics, environment_metrics
 )
+from scripts.import_real_dataset import fetch_real_pilot_metrics, DEFAULT_REAL_DB_PATH
+from .engine_api import router as engine_router
 
 DASHBOARD_TEMPLATE = Path(__file__).resolve().parent / "templates" / "dashboard.html"
 
@@ -21,6 +23,8 @@ app = FastAPI(
     description="Research backend for measuring the quality impact of flaky tests.",
     lifespan=lifespan,
 )
+
+app.include_router(engine_router)
 
 @app.get("/")
 def root():
@@ -75,3 +79,11 @@ def export_metrics():
         "pipelines": pipe,
         "systemic": systemic_metrics()
     }
+
+@app.get("/api/metrics/real-pilot")
+@app.get("/api/real-metrics")
+def real_pilot():
+    if DEFAULT_REAL_DB_PATH.exists():
+        return fetch_real_pilot_metrics(DEFAULT_REAL_DB_PATH)
+    raise HTTPException(status_code=404, detail="Real pilot database not found. Run scripts.import_real_dataset first.")
+

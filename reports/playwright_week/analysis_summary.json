@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "generated_at_utc": "2026-11-15T03:50:59.447329+00:00",
+    "dataset_source": "\\\\wsl.localhost\\Ubuntu\\home\\Lakshay\\fim_dataset_research\\playwright_week\\raw",
+    "total_records_ingested": 2056823,
+    "total_unique_tests": 4042,
+    "unique_environments": [
+      "chromium-ubuntu-22.04-node18",
+      "chromium-ubuntu-22.04-node18,smoke",
+      "chromium-ubuntu-22.04-node20",
+      "chromium-ubuntu-22.04-node20,smoke",
+      "chromium-ubuntu-22.04-node22",
+      "chromium-ubuntu-22.04-node22,smoke",
+      "firefox-ubuntu-22.04-node18",
+      "firefox-ubuntu-22.04-node18,smoke",
+      "macos-latest-node18-1",
+      "macos-latest-node18-2",
+      "package-installations-macos-latest",
+      "package-installations-macos-latest,playwright/browser-chromium",
+      "package-installations-macos-latest,playwright/browser-firefox",
+      "package-installations-macos-latest,playwright/browser-webkit",
+      "package-installations-macos-latest,playwright/experimental-ct-react",
+      "package-installations-macos-latest,playwright/test",
+      "package-installations-ubuntu-latest",
+      "package-installations-ubuntu-latest,playwright/browser-chromium",
+      "package-installations-ubuntu-latest,playwright/browser-firefox",
+      "package-installations-ubuntu-latest,playwright/browser-webkit",
+      "package-installations-ubuntu-latest,playwright/experimental-ct-react",
+      "package-installations-ubuntu-latest,playwright/test",
+      "package-installations-windows-latest",
+      "package-installations-windows-latest,playwright/browser-chromium",
+      "package-installations-windows-latest,playwright/browser-firefox",
+      "package-installations-windows-latest,playwright/browser-webkit",
+      "package-installations-windows-latest,playwright/experimental-ct-react",
+      "package-installations-windows-latest,playwright/test",
+      "ubuntu-20.04-chromium-tip-of-tree",
+      "ubuntu-20.04-chromium-tip-of-tree,smoke",
+      "ubuntu-latest-node18-1",
+      "ubuntu-latest-node18-2",
+      "ubuntu-latest-node20-1",
+      "ubuntu-latest-node20-2",
+      "ubuntu-latest-node22-1",
+      "ubuntu-latest-node22-2",
+      "vscode-extension",
+      "vscode-extension,smoke",
+      "web-components-html-reporter",
+      "webkit-ubuntu-22.04-node18",
+      "webkit-ubuntu-22.04-node18,smoke",
+      "windows-latest-node18-1",
+      "windows-latest-node18-2"
+    ]
+  },
+  "classification_breakdown": {
+    "Flaky candidate": {
+      "count": 79,
+      "percentage": 1.95
+    },
+    "Consistently failing": {
+      "count": 1,
+      "percentage": 0.02
+    },
+    "Consistently passing": {
+      "count": 3962,
+      "percentage": 98.02
+    },
+    "Insufficient evidence": {
+      "count": 0,
+      "percentage": 0.0
+    }
+  },
+  "evidence_breakdown": {
+    "High evidence": {
+      "count": 3993,
+      "percentage": 98.79
+    },
+    "Moderate evidence": {
+      "count": 44,
+      "percentage": 1.09
+    },
+    "Low evidence": {
+      "count": 5,
+      "percentage": 0.12
+    }
+  },
+  "prioritization_configuration": {
+    "formula": "Priority = 0.60 * Pipeline_Recurrence + 0.40 * Mixed_Batch_Frequency",
+    "weight_pipeline_recurrence": 0.6,
+    "weight_batch_frequency": 0.4
+  },
+  "flaky_metrics_aggregates": {
+    "literature_supported": {
+      "average_mixed_outcome_batch_frequency": 0.0077,
+      "average_retry_recovery_rate": 0.668,
+      "total_flaky_candidates_with_retries": 55
+    },
+    "fim_proposed": {
+      "average_pipeline_recurrence": 0.0532,
+      "average_environment_concentration": 0.8249,
+      "total_cumulative_rerun_overhead_seconds": 2999.629
+    }
+  },
+  "disclaimers": {
+    "exploratory_baseline": "Exploratory Baseline Metric: Priority scores are experimental weighted heuristics combining Pipeline Recurrence (60%) and Mixed-Outcome Batch Frequency (40%) to order investigation effort. They represent empirical operational signals rather than deterministic truth.",
+    "methodology": "Methodological Note: Test classifications and metrics reflect empirical execution history from the provided dataset. Observations do not imply definitive causality or universal bug categorization. Priority scores are exploratory baselines."
+  }
+}
